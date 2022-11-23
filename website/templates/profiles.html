@@ -1,0 +1,386 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="text/html;charset=UTF-8"/>
+<meta name="robots" content="index, follow">
+<ul class="breadcrumb">
+  <li><a href="{% url 'home' %}">Home</a></li>
+  <li><a href="{% url 'profiles' %}">Fans leaked Profiles</a></li>
+  <li><a href="https://xhamster.com">Hot Trend</a></li>
+</ul>
+
+<style>
+    @import url("https://fonts.googleapis.com/css?family=Montserrat");
+ul.breadcrumb {
+  padding: 10px 16px;
+  list-style: none;
+  background-color: #eee;
+}
+ul.breadcrumb li {
+  display: inline;
+  font-size: 18px;
+}
+ul.breadcrumb li+li:before {
+  padding: 8px;
+  color: black;
+  content: "/\00a0";
+}
+ul.breadcrumb li a {
+  color: #0275d8;
+  text-decoration: none;
+}
+ul.breadcrumb li a:hover {
+  color: #01447e;
+  text-decoration: underline;
+}
+
+
+body,html {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #f5f4f4;
+  font-size: 13px;
+  font-family: "Montserrat", monospace;
+
+}
+@supports (display: grid) {
+  body,html {
+    display: block;
+  }
+}
+
+.message {
+  border: 1px solid #d2d0d0;
+  padding: 2em;
+  font-size: 1.7vw;
+  box-shadow: -2px 2px 10px 0px rgba(68, 68, 68, 0.4);
+}
+@supports (display: grid) {
+  .message {
+    display: none;
+  }
+}
+
+.section {
+  display: none;
+  padding: 2rem;
+}
+@media screen and (min-width: 1200px) {
+  .section {
+    padding: 4rem;
+  }
+}
+@supports (display: grid) {
+  .section {
+    display: block;
+  }
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0 0 1.5em;
+}
+
+.grid {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-auto-rows: minmax(200px, 1fr);
+  grid-auto-flow: row dense;
+}
+
+.item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  background: #666;
+  color: #fff;
+  grid-column-start: auto;
+  grid-row-start: auto;
+  color: #fff;
+  /**background: url("");**/
+  background-size: cover;
+  background-position: center;
+  box-shadow: -2px 2px 10px 0px rgba(68, 68, 68, 0.4);
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+  counter-increment: item-counter;
+  padding-top:100%;
+  width:100%;
+  
+}
+
+.linklist {
+    margin-top:14px;
+    background: #EEE;
+    padding:10px;
+    border: #333;
+    line-height:110%;
+    box-shadow: -3px 3px 10px 0px rgba(68, 68, 68, 0.6);
+}
+
+
+.item:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.item:hover {
+  transform: scale(1.05);
+}
+.item:hover:after {
+  opacity: 0;
+}
+.item--medium {
+  grid-row-end: auto;
+}
+.item--large {
+  grid-row-end: span 3;
+}
+
+@media screen and (max-width: 800px) {
+  .item--medium {
+    grid-column: 1/-1;
+    grid-row-end: span 1;
+  }
+}
+.item__details {
+  position: absolute;
+  z-index: 1;
+  color: #444;
+  margin-left:15px;
+  font-size: 2.7rem;
+  letter-spacing: 1px;
+  color: #fff;
+  text-shadow: -2px 2px 0 #000,
+               2px 2px 0 #000,
+                2px -2px 0 #000,
+                -2px -2px 0 #000;
+}
+/*.item__details:before {
+  content: counter(item-counter);
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding-right: 0.5em;
+  color: #444;
+} */
+
+
+.header {
+  text-align: center;
+  padding: 32px;
+  font-size: 120%;
+  color:#000;
+}
+
+.link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.footer {
+  text-align: center;
+  color:#666;
+  padding: 105px;
+}
+.ftx {
+    color:#666;
+    font-size:small;
+}
+.ftxs {
+    color:#666;
+    font-size:x-small;
+}
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  box-shadow: -2px 2px 10px 0px rgba(68, 68, 68, 0.6);
+}
+
+.embed-container iframe,
+.embed-container object,
+.embed-container video,
+.embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: auto;
+
+}
+
+
+.profinfo {
+  text-align: center;
+  color:#333;
+  padding: 30px;
+  font-size: 2rem;
+}
+
+
+.profbtn {
+background-color: #EB0; 
+color: #000; 
+cursor: pointer; 
+padding: 10px 30px; 
+border:1px solid #600;
+border-radius:5px;
+text-decoration:none;
+box-shadow: -3px 3px 12px 2px rgba(68, 68, 68, 0.8);
+}
+
+.profbtn:hover {
+background-color: #FC0; 
+color: #333; 
+}
+
+</style>
+  <title>The Hottest Models / Best Leaks Creators of OnlyFans - on fansleakedonly.com</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+</head>
+
+<section class="section">
+
+<div class="header">
+  
+    <h1>Fans Leaked Only Profiles:</h1>
+    </div><div class="linklist" style="margin-top:30px; background: #EEF;">
+
+      <div class="linklist">
+        ⭐️ <a href="{% url 'adrianachechik' %}" target="_blank">OnlyFans: Adriana Chechik</a> &nbsp; 
+        <a style="color:#fe47d9;"; href="{% url 'adrianachechik' %}" target="_blank">155 posts on OnlyFans</a>&nbsp; <span style="color:#2fc2ff;">Top 💦 Cum Model </style><br/>
+        </div>
+
+        <div class="linklist">
+        ⭐️ <a href="{% url 'aisha' %}" target="_blank">OnlyFans: Aisha</a> &nbsp; 
+        <a style="color:#fe47d9;"; href="{% url 'aisha' %}" target="_blank">222 posts on OnlyFans</a>&nbsp; <span style="color:#2fc2ff;">TOP 💦 Cum Model</style><br/>
+        </div>
+
+        <div class="linklist">
+        ⭐️ <a href="{% url 'alyssamacdonald' %}" target="_blank">OnlyFans: alyssa macdonald</a> &nbsp; 
+        <a style="color:#fe47d9;"; href="{% url 'alyssamacdonald' %}" target="_blank">42 posts on OnlyFans</a>&nbsp; <span style="color:#2fc2ff;">TOP 💦 Cum Model</style><br/>
+        </div>
+
+        <div class="linklist">
+        ⭐️ <a href="{% url 'amberrose' %}" target="_blank">OnlyFans: Amber Rose</a> &nbsp; 
+        <a style="color:#fe47d9;"; href="{% url 'amberrose' %}" target="_blank">66 posts on OnlyFans</a>&nbsp; <span style="color:#2fc2ff;">TOP 💦 Hot Model</style><br/>
+        </div>
+
+        <div class="linklist">
+        ⭐️ <a href="{% url 'babygirlstormy' %}" target="_blank">OnlyFans: baby girl stormy</a> &nbsp; 
+        <a style="color:#fe47d9;"; href="{% url 'babygirlstormy' %}" target="_blank">77 posts on OnlyFans </a>&nbsp; <span style="color:#2fc2ff;">TOP 💦 Hot Model</style><br/>
+        </div>
+
+        <div class="linklist">
+        ⭐️ <a href="{% url 'bellabumzy' %}" target="_blank">OnlyFans: Bella Bumzy</a> &nbsp; 
+        <a style="color:#fe47d9;"; href="{% url 'bellabumzy' %}" target="_blank">22 posts on OnlyFans</a>&nbsp; <span style="color:#2fc2ff;">TOP 💦 Hot Model</style><br/>
+        </div>
+
+        <div class="linklist">
+        ⭐️ <a href="{% url 'bellathorne' %}" target="_blank">OnlyFans: Bella Thorne</a> &nbsp; 
+        <a style="color:#fe47d9;"; href="{% url 'bellathorne' %}" target="_blank">11 posts on OnlyFans</a>&nbsp; <span style="color:#2fc2ff;">TOP 💦 Hot Model</style><br/>
+        </div>
+
+        <div class="linklist">
+        ⭐️ <a href="{% url 'belledelphine' %}" target="_blank">OnlyFans: Bella Delphine</a> &nbsp; 
+        <a style="color:#fe47d9;"; href="{% url 'belledelphine' %}" target="_blank">99 posts on OnlyFans</a>&nbsp; <span style="color:#2fc2ff;">TOP 💦 Hot Model</style><br/>
+        </div>
+
+        <div class="linklist">
+        ⭐️ <a href="{% url 'bhadbabie' %}" target="_blank">OnlyFans: Bhad Babie</a> &nbsp; 
+        <a style="color:#fe47d9;"; href="{% url 'bhadbabie' %}" target="_blank">88 posts on OnlyFans</a>&nbsp; <span style="color:#2fc2ff;">TOP 💦 Hot Model</style><br/>
+        </div>
+
+        <div class="linklist">
+        ⭐️ <a href="{% url 'blacchyna' %}" target="_blank">OnlyFans: Blac Chyna</a> &nbsp; 
+        <a style="color:#fe47d9;"; href="{% url 'blacchyna' %}" target="_blank">33 posts on OnlyFans</a>&nbsp; <span style="color:#2fc2ff;">TOP 💦 Hot Model</style><br/>
+        </div>
+
+        <div class="linklist">
+        ⭐️ <a href="{% url 'corinnakopf' %}" target="_blank">OnlyFans:Corinna Kopf</a> &nbsp; 
+        <a style="color:#fe47d9;"; href="{% url 'corinnakopf' %}" target="_blank">55 posts on OnlyFans</a>&nbsp; <span style="color:#2fc2ff;">TOP 💦 Hot Model</style><br/>
+        </div>
+
+        <div class="linklist">
+        ⭐️ <a href="{% url 'daisydrew' %}" target="_blank">OnlyFans: Daisy Drew</a> &nbsp; 
+        <a style="color:#fe47d9;"; href="{% url 'daisydrew' %}" target="_blank">75 posts on OnlyFans</a>&nbsp; <span style="color:#2fc2ff;">TOP 💦 Hot Model</style><br/>
+        </div>
+
+        <div class="linklist">
+        ⭐️ <a href="{% url 'danadearmond' %}" target="_blank">OnlyFans: Dana Dearmond </a> &nbsp; 
+        <a style="color:#fe47d9;"; href="{% url 'danadearmond' %}" target="_blank">33 posts on OnlyFans</a>&nbsp; <span style="color:#2fc2ff;">TOP 💦 Hot Model</style><br/>
+        </div>
+
+        <div class="linklist">
+        ⭐️ <a href="{% url 'gemmamassey' %}" target="_blank">OnlyFans: Gemma Massey</a> &nbsp; 
+        <a style="color:#fe47d9;"; href="{% url 'gemmamassey' %}" target="_blank">47 posts on OnlyFans</a>&nbsp; <span style="color:#2fc2ff;">TOP 💦 Cum Model</style><br/>
+        </div>
+
+        <div class="linklist">
+        ⭐️ <a href="{% url 'honeyasian' %}" target="_blank">OnlyFans: Honey Asian</a> &nbsp; 
+        <a style="color:#fe47d9;"; href="{% url 'honeyasian' %}" target="_blank">88 posts on OnlyFans</a>&nbsp; <span style="color:#2fc2ff;">TOP 💦 Hot Model</style><br/>
+        </div>
+
+        <div class="linklist">
+        ⭐️ <a href="{% url 'jemwolfie' %}" target="_blank">OnlyFans: Jem Wolfie</a> &nbsp; 
+        <a style="color:#fe47d9;"; href="{% url 'jemwolfie' %}" target="_blank">34 posts on OnlyFans</a>&nbsp; <span style="color:#2fc2ff;">TOP 💦 Hot Model</style><br/>
+        </div>
+
+        <div class="linklist">
+        ⭐️ <a href="{% url 'kanricos' %}" target="_blank">OnlyFans: Kanricos</a> &nbsp; 
+        <a style="color:#fe47d9;"; href="{% url 'kanricos' %}" target="_blank">57 posts on OnlyFans</a>&nbsp; <span style="color:#2fc2ff;">TOP 💦 Cum Model</style><br/>
+        </div>
+
+        <div class="linklist">
+        ⭐️ <a href="{% url 'lexibelle' %}" target="_blank">OnlyFans: Lexi Belle</a> &nbsp; 
+        <a style="color:#fe47d9;"; href="{% url 'lexibelle' %}" target="_blank">97 posts on OnlyFans</a>&nbsp; <span style="color:#2fc2ff;">TOP 💦 Model</style><br/>
+        </div>
+
+        <div class="linklist">
+        ⭐️ <a href="{% url 'lilybigboobs' %}" target="_blank">OnlyFans:Lily Big Boobs</a> &nbsp; 
+        <a style="color:#fe47d9;"; href="{% url 'lilybigboobs' %}" target="_blank">25 posts on OnlyFans</a>&nbsp; <span style="color:#2fc2ff;">TOP 💦 Model</style><br/>
+        </div>
+
+        <div class="linklist">
+        ⭐️ <a href="{% url 'kiranoir' %}" target="_blank">OnlyFans:Kira Noir</a> &nbsp; 
+        <a style="color:#fe47d9;"; href="{% url 'kiranoir' %}" target="_blank">89 posts on OnlyFans</a>&nbsp; <span style="color:#2fc2ff;">TOP 💦Hot Model</style><br/>
+        </div>
+    
+
+    <div class="footer">
+      
+<p>
+<a class="ftx" href="/2257.html">2257 Statement</a> &nbsp; <a class="ftx" href="mailto:brayenshadi@gmail.com">Contact / Advertise</a>
+</p><p class="ftxs">
+        Powered by shade all right reserved fansleakedonly.com
+    </p>
+  </div>
+
+</div>
+
+</body>
+
+</html>
+
+

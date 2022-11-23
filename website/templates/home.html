@@ -1,0 +1,471 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="index, follow">
+<meta http-equiv="X-UA-Compatible" content="text/html;charset=UTF-8"/>
+<meta name="description" content="Fans Leaked Only is a web sharing website of the best hot content images and video Creators
+of onlyfans">
+    <meta title="The Hottest Models / Best Leaks Creators of OnlyFans - By Fansleakedonly">
+<ul class="breadcrumb">
+
+  <li><a href="{% url 'home' %}">Home</a></li>
+  <li><a href="{% url 'profiles' %}">Fans leaked Profiles</a></li>
+  <li><a href="https://xhamster.com">Hot Trend</a></li>
+</ul>
+
+<style>
+    @import url("https://fonts.googleapis.com/css?family=Montserrat");
+ul.breadcrumb {
+  padding: 10px 16px;
+  list-style: none;
+  background-color: #eee;
+}
+ul.breadcrumb li {
+  display: inline;
+  font-size: 18px;
+}
+ul.breadcrumb li+li:before {
+  padding: 8px;
+  color: black;
+  content: "/\00a0";
+}
+ul.breadcrumb li a {
+  color: #0275d8;
+  text-decoration: none;
+}
+ul.breadcrumb li a:hover {
+  color: #01447e;
+  text-decoration: underline;
+}
+
+
+body,html {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #f5f4f4;
+  font-size: 13px;
+  font-family: "Montserrat", monospace;
+
+}
+@supports (display: grid) {
+  body,html {
+    display: block;
+  }
+}
+
+.message {
+  border: 1px solid #d2d0d0;
+  padding: 2em;
+  font-size: 1.7vw;
+  box-shadow: -2px 2px 10px 0px rgba(68, 68, 68, 0.4);
+}
+@supports (display: grid) {
+  .message {
+    display: none;
+  }
+}
+
+.section {
+  display: none;
+  padding: 2rem;
+}
+@media screen and (min-width: 1200px) {
+  .section {
+    padding: 4rem;
+  }
+}
+@supports (display: grid) {
+  .section {
+    display: block;
+  }
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0 0 1.5em;
+}
+
+.grid {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-auto-rows: minmax(200px, 1fr);
+  grid-auto-flow: row dense;
+}
+
+.item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  background: #666;
+  color: #fff;
+  grid-column-start: auto;
+  grid-row-start: auto;
+  color: #fff;
+  /**background: url("");**/
+  background-size: cover;
+  background-position: center;
+  box-shadow: -2px 2px 10px 0px rgba(68, 68, 68, 0.4);
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+  counter-increment: item-counter;
+  padding-top:100%;
+  width:100%;
+  
+}
+
+.linklist {
+    margin-top:14px;
+    background: #EEE;
+    padding:10px;
+    border: #333;
+    line-height:110%;
+    box-shadow: -3px 3px 10px 0px rgba(68, 68, 68, 0.6);
+}
+
+
+.item:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.item:hover {
+  transform: scale(1.05);
+}
+.item:hover:after {
+  opacity: 0;
+}
+.item--medium {
+  grid-row-end: auto;
+}
+.item--large {
+  grid-row-end: span 3;
+}
+
+@media screen and (max-width: 800px) {
+  .item--medium {
+    grid-column: 1/-1;
+    grid-row-end: span 1;
+  }
+}
+.item__details {
+  position: absolute;
+  z-index: 1;
+  color: #444;
+  margin-left:15px;
+  font-size: 2.7rem;
+  letter-spacing: 1px;
+  color: #fff;
+  text-shadow: -2px 2px 0 #000,
+               2px 2px 0 #000,
+                2px -2px 0 #000,
+                -2px -2px 0 #000;
+}
+/*.item__details:before {
+  content: counter(item-counter);
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding-right: 0.5em;
+  color: #444;
+} */
+
+
+.header {
+  text-align: center;
+  padding: 32px;
+  font-size: 120%;
+  color:#000;
+}
+
+.link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.footer {
+  text-align: center;
+  color:#666;
+  padding: 105px;
+}
+.ftx {
+    color:#666;
+    font-size:small;
+}
+.ftxs {
+    color:#666;
+    font-size:x-small;
+}
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  box-shadow: -2px 2px 10px 0px rgba(68, 68, 68, 0.6);
+}
+
+.embed-container iframe,
+.embed-container object,
+.embed-container video,
+.embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: auto;
+
+}
+
+
+.profinfo {
+  text-align: center;
+  color:#333;
+  padding: 30px;
+  font-size: 2rem;
+}
+
+
+.profbtn {
+background-color: #EB0; 
+color: #000; 
+cursor: pointer; 
+padding: 10px 30px; 
+border:1px solid #600;
+border-radius:5px;
+text-decoration:none;
+box-shadow: -3px 3px 12px 2px rgba(68, 68, 68, 0.8);
+}
+
+.profbtn:hover {
+background-color: #FC0; 
+color: #333; 
+}
+
+</style>
+  <title>The Hottest Sluts / Best Leaks Creators of OnlyFans - on fansleakedonly.com</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+</head>
+
+<body translate="no" >
+  <div class="message">
+  Sorry, your browser does not support CSS Grid :/
+</div>
+<section class="section">
+
+<div class="header">
+    <h1>The hottest Leaks of OnlyFans</h1>
+    <p>Cumshot Scenes-Content Quality-Editor's Choice-User Reviews</p>
+  </div>
+  
+  <div class="grid">
+      
+    <div class="item item--medium" style="background-image: url('https://i.imgur.com/huTjEkY.png');">
+        <a href="{% url 'amberrose' %}" target="_blank"><span class="link"></span></a>
+        <div class="item__details"></div>
+    </div><div class="item item--medium" style="background-image: url('https://i.imgur.com/HeHlrYw.png');">
+            <a href="{% url 'adrianachechik' %}" target="_blank"><span class="link"></span></a>
+            
+        </div><div class="item item--medium" style="background-image: url('https://i.imgur.com/DGnrN2d.png');">
+            <a href="{% url 'aisha' %}" target="_blank"><span class="link"></span></a>
+            
+        </div><div class="item item--medium" style="background-image: url('https://i.imgur.com/NSyeS41.png');">
+            <a href="{% url 'bellabumzy' %}" target="_blank"><span class="link"></span></a>
+            
+        </div><div class="item item--medium" style="background-image: url('https://i.imgur.com/tTWtyNE.png');">
+            <a href="{% url 'bellathorne' %}" target="_blank"><span class="link"></span></a>
+            
+        </div><div class="item item--medium" style="background-image: url('https://i.imgur.com/XmhIM4I.png');">
+            <a href="{% url 'belledelphine' %}" target="_blank"><span class="link"></span></a>
+            
+        </div><div class="item item--medium" style="background-image: url('https://i.imgur.com/o9IvyJK.png');">
+            <a href="{% url 'bhadbabie' %}" target="_blank"><span class="link"></span></a>
+            
+        </div><div class="item item--medium" style="background-image: url('https://i.imgur.com/sQmaIOy.png');">
+            <a href="{% url 'blacchyna' %}" target="_blank"><span class="link"></span></a>
+            
+        </div><div class="item item--medium" style="background-image: url('https://i.imgur.com/33mR2KT.png');">
+            <a href="{% url 'corinnakopf' %}" target="_blank"><span class="link"></span></a>
+            
+        </div><div class="item item--medium" style="background-image: url('https://i.imgur.com/8JII5LU.png');">
+            <a href="{% url 'daisydrew' %}" target="_blank"><span class="link"></span></a>
+            
+        </div><div class="item item--medium" style="background-image: url('https://i.imgur.com/8rWDps1.png');">
+            <a href="{% url 'danadearmond' %}" target="_blank"><span class="link"></span></a>
+            
+        </div><div class="item item--medium" style="background-image: url('https://i.imgur.com/QGs6BEk.png');">
+            <a href="{% url 'gemmamassey' %}" target="_blank"><span class="link"></span></a>
+          
+        </div>
+        <div class="item item--medium" style="background-image: url('https://i.imgur.com/4w7zcdh.png');">
+            <a href="{% url 'haleybrooks' %}" target="_blank"><span class="link"></span></a>
+          
+        </div>
+        <div class="item item--medium" style="background-image: url('https://i.imgur.com/g0Kvta6.png');">
+            <a href="{% url 'ittybittyprettykitty' %}" target="_blank"><span class="link"></span></a>
+            
+        </div>
+        <div class="item item--medium" style="background-image: url('https://i.imgur.com/Q0EZhiL.png');">
+            <a href="{% url 'jemwolfie' %}" target="_blank"><span class="link"></span></a>
+            
+        </div>
+
+        <div class="item item--medium" style="background-image: url('https://i.imgur.com/XezQzbq.png');">
+            <a href="{% url 'jewelzblu' %}" target="_blank"><span class="link"></span></a>
+           
+        </div>
+        <div class="item item--medium" style="background-image: url('https://i.imgur.com/O8BrUfD.png');">
+            <a href="{% url 'jojolovesex' %}" target="_blank"><span class="link"></span></a>
+            
+        </div>
+        
+         <div class="item item--medium" style="background-image: url('https://i.imgur.com/kRrSRv2.png');">
+            <a href="{% url 'kacyblack' %}" target="_blank"><span class="link"></span></a>
+            
+        </div>
+        <div class="item__details" style="background-image: url('https://i.imgur.com/kLQOLkW.png');">
+            <a href="https://onlyfans.com" target="_blank"><span class="link"></span></a>
+            
+        </div>
+
+        <div class="item item--medium" style="background-image: url('https://i.imgur.com/sbuEgu3.png');">
+            <a href="{% url 'laurenelizabeth' %}" target="_blank"><span class="link"></span></a>
+            
+        </div><div class="item item--medium" style="background-image: url('https://i.imgur.com/rNLFUBf.png');">
+            <a href="{% url 'karmarx' %}" target="_blank"><span class="link"></span></a>
+            
+              </div>
+              <div class="item item--medium" style="background-image: url('https://i.imgur.com/Sc37kKI.png');">
+            <a href="{% url 'samhickelspoon' %}" target="_blank"><span class="link"></span></a>
+            
+        </div>
+        <div class="item item--medium" style="background-image: url('https://i.imgur.com/CazueL5.png');">
+            <a href="{% url 'sophiedee' %}" target="_blank"><span class="link"></span></a>
+            
+        </div>
+        <div class="item item--medium" style="background-image: url('https://i.imgur.com/gK7G9qO.png');">
+            <a href="{% url 'alyssamacdonald' %}" target="_blank"><span class="link"></span></a>
+            
+        </div>
+        <div class="item item--medium" style="background-image: url('https://i.imgur.com/eTaz2kN.png');">
+            <a href="{% url 'misskirroyal' %}" target="_blank"><span class="link"></span></a>
+            
+        </div>
+        <div class="item item--medium" style="background-image: url('https://i.imgur.com/kzMyIoz.png');">
+            <a href="{% url 'miamalkova'%}" target="_blank"><span class="link"></span></a>
+            
+        </div>
+        <div class="item item--medium" style="background-image: url('https://i.imgur.com/wHL8H67.png');">
+            <a href="{% url 'misskatie' %}" target="_blank"><span class="link"></span></a>
+            
+        </div>
+        <div class="item item--medium" style="background-image: url('https://i.imgur.com/HsW49xX.png');">
+            <a href="{% url 'milkimind' %}" target="_blank"><span class="link"></span></a>
+            
+        </div>
+        <div class="item item--medium" style="background-image: url('https://i.imgur.com/tbgy2o5.png');">
+            <a href="{% url 'babygirlstormy' %}" target="_blank"><span class="link"></span></a>
+            
+        </div>
+              <div class="item item--medium" style="background-image: url('https://i.imgur.com/LbnoKrL.png');">
+            <a href="{% url 'lanarhoades' %}" target="_blank"><span class="link"></span></a>
+            
+        
+        </div>
+        <div class="item item--medium" style="background-image: url('https://i.imgur.com/fNgSxar.png');">
+            <a href="{% url 'kanricos' %}" target="_blank"><span class="link"></span></a>
+            
+        </div>
+          <div class="item item--medium" style="background-image: url('https://i.imgur.com/VAt6u2d.png');">
+            <a href="{% url 'leninacrowne' %}" target="_blank"><span class="link"></span></a>
+            
+        </div>
+
+        <div class="item item--medium" style="background-image: url('https://i.imgur.com/Gdm7hQA.png');">
+            <a href="{% url 'meganbartonhanson' %}" target="_blank"><span class="link"></span></a>
+            
+        </div>
+        </div>
+    </div>
+      
+    
+    <div style="margin-top:50px;">
+    <h2>More OnlyFans leaked Contents</h2>
+    </div><div class="linklist" style="margin-top:30px; background: #EEF;">
+    <a href="https://onlyfansleaks.tv/onlyfans/" target="_blank">Check out fansleakedonly where 200+ of the hottest Models of OnlyFans ! - It's FREE!</a>
+    </div>
+    <div class="linklist">
+        <a href="{% url 'lucytisan' %}" target="_blank">OnlyFans: Lucy tisan</a> &nbsp; 
+        <a style="color:#555;"; href="{% url 'lucytisan' %}" target="_blank">xhamster preview</a><br/>
+        <div style="color: #444; margin-left:15px;margin-top:5px;font-size: 0.7rem;">
+            <b>Views: 60679916 &nbsp; 
+            Likes: 244641</b><br/>
+            Tags: German,European,Big Boobs Deep Throat,Big Boobs Face Fuck,Big Boobs Hard Fucking,Big Cumshots,Big Daddy Dick,Big Deepthroat,Big Dick Cumshot,Big Dicks Cumming,Big Hard on,Big Natural,Big Natural Boobs,Blowjobs,Cum on Face,Cumming,Cumshot on Face,Deepthroat,Facial Cumshot,Fuck Bad Milfs
+        </div>
+        </div><div class="linklist">
+        ⭐️ <a href="{% url 'piamia' %}" target="_blank">OnlyFans: Pia Mia</a> &nbsp; 
+        <a style="color:#fe47d9;"; href="{% url 'piamia' %}" target="_blank">47 Leaked Contents video images</a>&nbsp; <span style="color:#2fc2ff;">TOP 💦 Slut</style><br/>
+        </div><div class="linklist">
+        <a href="{% url 'miakhalifa' %}" target="_blank">OnlyFans: Mia Khalifa</a> &nbsp; 
+        <a style="color:#555;"; href="{% url 'miakhalifa' %}" target="_blank">xhamster preview</a><br/>
+        <div style="color: #444; margin-left:15px;margin-top:5px;font-size: 0.7rem;">
+            <b>Views: 57022403 &nbsp; 
+            Likes: 207167</b><br/>
+            Tags: 18 Year Old,Amateur,Big Cock,Big Tits,Blonde,Cum Swallowing,Cum in Mouth,Facial,Glory Hole,Teen (18+),18 Facial,18 Year Old Cock,18 Year Old Teens Fucked (18+),18 Year Old Tits,Amateur Blonde Tits,Amateur Cum Sluts,Amateur Fucking,Amateur Glory Hole,Amateur Huge Boob,Amateur Teen Cumshot (18+)
+        </div>
+        </div>
+
+
+        </div><div class="linklist">
+        ⭐️ <a href="{% url 'shadydoll' %}" target="_blank">OnlyFans: ShadyDoll</a> &nbsp; 
+        <a style="color:#fe47d9;"; href="{% url 'shadydoll' %}" target="_blank">16 posts Leaked Contents</a>&nbsp; <span style="color:#2fc2ff;">Hot 💦 Models</style><br/>
+        </div><div class="linklist">
+        <a href="{% url 'melisabelle' %}" target="_blank">OnlyFans: Melisa belle</a> &nbsp; 
+        <a style="color:#555;"; href="{% url 'melisabelle' %}" target="_blank">xhamster preview</a><br/>
+        <div style="color: #444; margin-left:15px;margin-top:5px;font-size: 0.7rem;">
+            <b>Views: 37970442 &nbsp; 
+            Likes: 141267</b><br/>
+            Tags: Amateur,Anal,Big Ass,Blowjob,Cosplay,Doggy Style,Hardcore,Teen (18+),Amateur Fucking,Amateur Teen (18+) Blowjob,Anal Ass Fucked,Anal Asses,Anal Fuck,Anal Pants,Anal Teen (18+) Hardcore,Anal in,Analed,Ass,Ass to Pussy Creampie,Best Blowjob
+        </div>
+        </div>
+
+        <div class="linklist">
+        <a href="{% url 'pokebella' %}" target="_blank">OnlyFans: Poke Bella</a> &nbsp; 
+        <a style="color:#fe47d9;"; href="{% url 'pokebella' %}" target="_blank">8 posts Leaked videos images</a><br/>
+        </div>
+
+        <div class="linklist" style="background: #EEF;">
+        <a href="{% url 'samlypuff' %}" target="_blank"> check out The leaked Contents of OnlyFans show what they got - It's FREE!</a>
+        </div>  <div class="footer">
+      
+<p>
+<a class="ftx" href="/2257.html">2257 Statement</a> &nbsp; <a class="ftx" href="mailto:brayenshadi@gmail.com">Contact / Advertise</a>
+</p><p class="ftxs">
+        Powered by shade all right reserved fansleakedonly.com
+    </p>
+  </div>
+
+</div>
+
+</body>
+
+</html>
+
+
